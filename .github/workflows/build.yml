@@ -1,0 +1,39 @@
+name: Build and test
+on:
+  push:
+    branches-ignore:
+      - staging.tmp
+
+jobs:
+  preflight:
+    if: "!contains(github.event.head_commit.message, 'skip ci')"
+    runs-on: ubuntu-latest
+
+    steps:
+      - run: exit 0
+
+  test:
+    needs: preflight
+    runs-on: ubuntu-latest
+
+    strategy:
+      fail-fast: false
+      matrix:
+        node-version: ['14']
+
+    steps:
+      - uses: actions/checkout@v2
+
+      - uses: actions/setup-node@v2
+        with:
+          node-version: ${{ matrix.node-version }}
+
+      - uses: actions/cache@v2
+        with:
+          path: ~/.npm
+          key: node-${{ runner.os }}-${{ matrix.node-version }}-${{ hashFiles('**/package-lock.json') }}
+          restore-keys: |
+            node-${{ runner.os }}-node-${{ matrix.node-version }}-
+
+      - run: npm install
+      - run: npm test

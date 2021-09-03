@@ -1,0 +1,19 @@
+{
+  "name": "@precision-nutrition/canadian-goose",
+  "version": "1.0.0",
+  "description": "Our common Markdown It config and extras",
+  "main": "index.js",
+  "scripts": {
+    "test": "jest"
+  },
+  "author": "Precision Nutrition",
+  "license": "MIT",
+  "devDependencies": {
+    "jest": "^27.1.0"
+  },
+  "dependencies": {
+    "escape-html": "^1.0.3",
+    "markdown-it": "^12.2.0",
+    "markdown-it-attrs": "^4.0.0"
+  }
+}
