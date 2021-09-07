@@ -58,4 +58,36 @@ describe('configureRenderer', function () {
 
     expect(out).toBe(expected);
   });
+
+  test('it returns an empty string with `undefined` as input', () => {
+    const expected = '';
+
+    const out = renderMarkdown(undefined);
+
+    expect(out).toBe(expected);
+  });
+
+  test('it returns an empty string with `null` as input', () => {
+    const expected = '';
+
+    const out = renderMarkdown(null);
+
+    expect(out).toBe(expected);
+  });
+
+  test('it returns an empty string with a blank string as input', () => {
+    const expected = '';
+
+    const out = renderMarkdown('');
+
+    expect(out).toBe(expected);
+  });
+
+  test('handles weird input too', () => {
+    const expected = '';
+
+    const out = renderMarkdown({});
+
+    expect(out).toBe(expected);
+  });
 });
