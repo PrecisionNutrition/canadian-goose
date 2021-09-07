@@ -83,7 +83,7 @@ function parseDefinitions(html) {
  * @returns {String} rendered HTML, or blank String should the input be "empty"
  */
 function renderMarkdown(input) {
-  if (typeof input === undefined || input === null || input === '') {
+  if (typeof input !== 'string') {
     return '';
   }
 
