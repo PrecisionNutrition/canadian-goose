@@ -1,4 +1,4 @@
-const renderMarkdown = require('../index');
+import renderMarkdown from '../index.js';
 
 describe('configureRenderer', function () {
   test('returns a new markdown renderer', () => {

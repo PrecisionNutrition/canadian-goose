@@ -1,6 +1,6 @@
-const markdownIt = require('markdown-it');
-const attrs = require('markdown-it-attrs');
-const escapeExpression = require('escape-html');
+import markdownIt from 'markdown-it';
+import attrs from 'markdown-it-attrs';
+import escapeExpression from 'escape-html';
 
 const REDIRECT_PATTERN = /#\/redirect\/activity\/([^/]+)\/?/;
 
@@ -82,7 +82,7 @@ function parseDefinitions(html) {
  *
  * @returns {String} rendered HTML, or blank String should the input be "empty"
  */
-function renderMarkdown(input) {
+export default function renderMarkdown(input) {
   if (typeof input !== 'string') {
     return '';
   }
@@ -93,5 +93,3 @@ function renderMarkdown(input) {
 
   return finalOutput;
 }
-
-module.exports = renderMarkdown;
