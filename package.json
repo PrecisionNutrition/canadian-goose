@@ -1,6 +1,6 @@
 {
   "name": "@precision-nutrition/canadian-goose",
-  "version": "1.0.1",
+  "version": "2.0.0",
   "description": "Our common Markdown It config and extras",
   "main": "dist/index.js",
   "module": "dist/index.js",
